@@ -4,15 +4,20 @@ import com.company.Interfaces.ClientInterface;
 import com.company.Interfaces.EmployeeInterface;
 import com.company.Interfaces.ManagerInterface;
 import com.company.Model.Klient;
+import com.company.Model.Pracownik;
 
 import javax.sound.midi.Soundbank;
 import javax.xml.crypto.Data;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
         boolean usage = true;
+        List<Klient> klienci = new ArrayList<>();
+        List<Pracownik> pracownicy = new ArrayList<>();
         ClearScreen clearScreen = new ClearScreen();
         Scanner sc = new Scanner(System.in);
         while (usage)
@@ -29,12 +34,17 @@ public class Main {
                 int mod = Integer.parseInt(sc.next());
                 switch (mod) {
                     case 1:
-                        System.out.println("Jak masz na imię?");
-                        String imie = sc.next();
-                        Klient klient = new Klient(imie);
+                        System.out.println("Drogi kliencie, jak masz na imię?");
+                        String imieKlienta = sc.next();
+
+                        Klient klient = new Klient(imieKlienta);
                         ClientInterface clientInterface = new ClientInterface(klient);
+
                         break;
                     case 2:
+                        System.out.println("Pracowniku, jak masz na imię?");
+                        String imiePracownika = sc.next();
+                        Pracownik pracownik = new Pracownik(imiePracownika);
                         EmployeeInterface employeeInterface = new EmployeeInterface();
                         break;
                     case 3:

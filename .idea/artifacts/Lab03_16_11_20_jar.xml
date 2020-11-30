@@ -1,7 +1,7 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="Lab03_16.11.20:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/Lab03_16_11_20_jar</output-path>
-    <root id="archive" name="Lab03_16.11.20.jar">
+    <root id="archive" name="Lab03_pop.jar">
       <element id="module-output" name="Lab03_16.11.20" />
     </root>
   </artifact>

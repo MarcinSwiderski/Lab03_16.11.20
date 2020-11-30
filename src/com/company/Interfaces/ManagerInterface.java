@@ -1,5 +1,10 @@
 package com.company.Interfaces;
 
+import com.company.DataReader;
+import com.company.DataWriter;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class ManagerInterface {
@@ -19,6 +24,7 @@ public class ManagerInterface {
                 switch (mod) {
                     case 1:
                         System.out.println("Redakcja Oferty (TODO)");
+                        redakcjaOferty();
                         break;
                     case 2:
                         System.out.println("akceptacja zamowien");
@@ -41,9 +47,25 @@ public class ManagerInterface {
                 System.out.println("Bad variable read!");
             }
     }
+    public void redakcjaOferty(){
+        DataReader dataReader = new DataReader("oferty.txt");
+        DataWriter dataWriter = new DataWriter("oferty.txt");
+        Scanner sc = new Scanner(System.in);
 
-    private void exitManagerInterface() {
-        System.out.println("exit");
+        System.out.println("-----------------");
+        System.out.println("Dodawanie Oferty!");
+        System.out.println("-----------------");
+        System.out.println("id nowej oferty:");
+        String scId = sc.next();
+        System.out.println("nazwa nowej oferty:");
+        String scNazwa = sc.next();
+        System.out.println("cena nowej oferty:");
+        String scCena = sc.next();
+
+        String nowaOferta = scId + ";" + scNazwa + ";" + scCena ;
+        List<String> nowaListaOfert = new ArrayList<>();
+        nowaListaOfert.addAll(dataReader.getListOfRows());
+        nowaListaOfert.add(nowaOferta);
+        dataWriter.rewriteTextFile(nowaListaOfert);
     }
-
 }

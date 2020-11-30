@@ -3,6 +3,8 @@ package com.company;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
+import java.util.List;
 import java.util.logging.FileHandler;
 
 public class DataWriter {
@@ -32,6 +34,23 @@ public class DataWriter {
             System.err.println("Error while writing to file: " +
                     e.getMessage());
         }
+    }
+
+    public void rewriteTextFile(List<String> dataToRewrite){
+        try {
+            FileWriter fileWriter = new FileWriter(fileName, false);
+            for (int i = 0; i <dataToRewrite.size() ; i++) {
+                System.out.println(dataToRewrite.get(i));
+                fileWriter.write(dataToRewrite.get(i) + "\n");
+            }
+            fileWriter.close();
+
+
+        } catch (IOException e) {
+            System.err.println("Error while writing to file: " +
+                    e.getMessage());
+        }
+
     }
 
 }

@@ -1,7 +1,7 @@
 package com.company.Model;
 
 public class Pracownik {
-
+    private static int increment = 1;
     int idPracownika;
     String nazwaPracownika;
 
@@ -22,11 +22,11 @@ public class Pracownik {
     }
 
     public Pracownik(
-            int idPracownika,
             String nazwaPracownika
     ){
-        this.idPracownika = idPracownika;
         this.nazwaPracownika = nazwaPracownika;
+        this.idPracownika = increment;
+        increment ++;
     }
 
 }

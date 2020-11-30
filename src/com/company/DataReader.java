@@ -36,7 +36,6 @@ public class DataReader {
         List<Integer> idList = new ArrayList<>();
         for (String line:buforFromTextList) {
             String[] splited = line.split(";");
-//            System.out.println(splited[0]);
             idList.add(Integer.parseInt(splited[0]));
         }
         try{
