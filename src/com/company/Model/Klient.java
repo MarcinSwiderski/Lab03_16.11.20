@@ -1,14 +1,24 @@
 package com.company.Model;
 
 public class Klient {
-    int idKlienta;
-    String nazwaKlienta;
+    private static int increment = 1;
+    private int idKlienta;
+
+    public int getIdKlienta() {
+        return idKlienta;
+    }
+
+    public String getNazwaKlienta() {
+        return nazwaKlienta;
+    }
+
+    private String nazwaKlienta;
 
     public Klient(
-            int idKlienta,
             String nazwaKlienta
     ){
-        this.idKlienta = idKlienta;
         this.nazwaKlienta = nazwaKlienta;
+        this.idKlienta = increment;
+        increment++;
     }
 }
